@@ -125,7 +125,7 @@ for (let i = 0; i < vipSeats.length; i++) {
 //   alert("button is clicked");
 // });
 
-function test() {
-  console.log("view seat button is clicked");
-}
+function test () {
+  alert("view seat button is clicked");
+};
 
