@@ -117,7 +117,7 @@ for (let i = 0; i < vipSeats.length; i++) {
 let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
 
 const testFunc = () => {
-  console.log("button is clicked");
+  alert("button is clicked");
 }
 
 // Then we bind via thát event. This way we only bind one event, instead of the two as below
