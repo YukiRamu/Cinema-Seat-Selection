@@ -114,7 +114,9 @@ for (let i = 0; i < vipSeats.length; i++) {
 
 //Testing for mobile
 // First we check if you support touch, otherwise it's click:
-//let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+// let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+
+var touchEvent = ((window.ontouchstart !== null) ? 'click' : 'touchend');
 
 // const testFunc = () => {
 //   alert("button is clicked");
@@ -123,7 +125,10 @@ for (let i = 0; i < vipSeats.length; i++) {
 // Then we bind via thát event. This way we only bind one event, instead of the two as below
 //viewSeatsBtn.addEventListener(touchEvent, testFunc);
 
-
-$(document).delegate("#viewSeats", "touchstart", function test() {
+$(document).on(touchEvent, '#viewSeats', function () {
   alert("button is clicked");
 });
+
+// $(document).delegate("#viewSeats", "touchstart", function test() {
+//   alert("button is clicked");
+// });
