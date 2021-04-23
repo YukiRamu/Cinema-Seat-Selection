@@ -6,9 +6,9 @@
 
 /* Variables */
 //const movieChoice = document.getElementById("movieChoice"); //dropdown
-//const viewSeatsBtn = document.getElementById("viewSeats"); //view seat btn
+const viewSeatsBtn = document.getElementById("viewSeats"); //view seat btn
 //const seatRow = document.querySelectorAll(".seatRow"); // seat rows (4)
-//const seat = document.querySelectorAll(".seat"); //all seats div 
+const seat = document.querySelectorAll(".seat"); //all seats div 
 
 //Seat Panel
 const regularSeats = document.querySelectorAll(".flaticon-armchair"); // all regular seats 
@@ -21,6 +21,11 @@ const totalTicketNum = document.querySelector(".totalNum");
 const regularSubtotal = document.querySelector(".regSub");
 const vipSubtotal = document.querySelector(".vipSub");
 const totalPrice = document.querySelector(".sum");
+
+const seatPrice = {
+  regular: 10,
+  vip: 20
+}
 
 /* Class */
 class Movie {
@@ -45,19 +50,36 @@ class Price {
 
 class UI {
   constructor() {
-
+    this._seatType;
   }
   //method
   //#1 Mark the seat as selected
   static toggleSelected = (target) => {
     console.log("target seat is ", target);
+    //add "selected" class if available, change back to "available" when clicked again
     target.classList.toggle("selected");
     console.log(target);
+    UI.addSeats(target);
   }
 
   //#2 Add seats to Your Seats 
-  static addSeats = () => {
+  static addSeats = (seat) => {
+    console.log("target seats is ", seat.classList);
+    //check seat type
+    (seat.classList.contains("flaticon-armchair")) ? UI._seatType = "regular" : UI._seatType = "vip" ;
+    
+    console.log(UI._seatType);
 
+    //つづき、タイプごとに価格input by using object
+    
+    // for (let i = 0; i < seat.length; i++) {
+    //   console.log("counting")
+    //   if(seat[i].firstChild.classList[1] === "selected") {
+    //     seatCount++;
+    //   }    
+    // }
+    // console.log("seatCount is ",seatCount);
+    // return seatCount;
   }
 
 }
@@ -89,3 +111,8 @@ for (let i = 0; i < vipSeats.length; i++) {
 // #3 local storage
 
 //price calculation
+
+//Testing for mobile
+viewSeatsBtn.addEventListener("click", () => {
+  console.log("view seats button is clicked");
+})
