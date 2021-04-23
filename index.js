@@ -36,6 +36,13 @@ class Seat {
   }
 }
 
+class Price {
+  constructor() {
+    this._regular = 10;
+    this._vip = 20;
+  }
+}
+
 class UI {
   constructor() {
 
@@ -62,13 +69,13 @@ class UI {
 /* When the seat is selected */
 //add selected class to the target
 
-for (let i = 0; i< regularSeats.length; i++) {
+for (let i = 0; i < regularSeats.length; i++) {
   regularSeats[i].addEventListener("click", (event) => {
     UI.toggleSelected(event.target);
   });
 };
 
-for (let i = 0; i< vipSeats.length; i++) {
+for (let i = 0; i < vipSeats.length; i++) {
   vipSeats[i].addEventListener("click", (event) => {
     UI.toggleSelected(event.target);
   });
