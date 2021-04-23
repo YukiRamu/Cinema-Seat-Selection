@@ -124,6 +124,6 @@ for (let i = 0; i < vipSeats.length; i++) {
 //viewSeatsBtn.addEventListener(touchEvent, testFunc);
 
 
-$(document).delegate("#viewSeats", "click", function test () {
+$(document).delegate("#viewSeats", "touchstart", function test() {
   alert("button is clicked");
 });
