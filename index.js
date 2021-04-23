@@ -113,21 +113,14 @@ for (let i = 0; i < vipSeats.length; i++) {
 //price calculation
 
 //Testing for mobile
-// First we check if you support touch, otherwise it's click:
-// let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+// var touchEvent = ((window.ontouchstart !== null) ? 'click' : 'touchstart');
 
-var touchEvent = ((window.ontouchstart !== null) ? 'click' : 'touchstart');
+// $(document).on(touchEvent, '#viewSeats', function () {
+//   alert("JQuery button is clicked");
+// });
 
-// const testFunc = () => {
-//   alert("button is clicked");
-// }
 
-$(document).on(touchEvent, '#viewSeats', function () {
-  alert("JQuery button is clicked");
+viewSeatsBtn.addEventListener("click", () => {
+  alert("button is clicked");
 });
 
-
-// viewSeatsBtn.addEventListener("click", () => {
-//   alert("button is clicked");
-//   e.preventDefault();
-// });
