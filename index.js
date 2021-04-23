@@ -113,12 +113,12 @@ for (let i = 0; i < vipSeats.length; i++) {
 //price calculation
 
 //Testing for mobile
-viewSeatsBtn.addEventListener("click", () => {
-  console.log("view seats button is clicked");
-})
+// First we check if you support touch, otherwise it's click:
+let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
 
 const testFunc = () => {
   console.log("button is clicked");
 }
-// button click for mobile
-$('#viewSeats').on(touchEvent, testFunc);
+
+// Then we bind via thát event. This way we only bind one event, instead of the two as below
+viewSeatsBtn.addEventListener(touchEvent, testFunc);
