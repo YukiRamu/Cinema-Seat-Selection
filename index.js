@@ -122,13 +122,23 @@ var touchEvent = ((window.ontouchstart !== null) ? 'click' : 'touchend');
 //   alert("button is clicked");
 // }
 
-// Then we bind via thát event. This way we only bind one event, instead of the two as below
-//viewSeatsBtn.addEventListener(touchEvent, testFunc);
-
 $(document).on(touchEvent, '#viewSeats', function () {
-  alert("button is clicked");
+  alert("button1 is clicked");
 });
 
-// $(document).delegate("#viewSeats", "touchstart", function test() {
-//   alert("button is clicked");
-// });
+
+document.getElementById("viewSeats2").addEventListener("click", () => {
+  alert("button2 is clicked");
+});
+
+$(document).delegate("#viewSeats3", "click", function () {
+  alert("button3 is clicked");
+});
+
+$(document).delegate("#viewSeats4", "touchstart", function () {
+  alert("button4 is clicked");
+});
+
+$(".container").delegate("#viewSeats5", "click", function () {
+  alert("button5 is clicked");
+});
