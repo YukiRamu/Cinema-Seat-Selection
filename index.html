@@ -27,103 +27,203 @@
 
 <body>
 
-  <div class="container">
-    <h1>Seat Selection</h1>
+  <div class="container row">
 
-    <!--select movie-->
-    <div class="mb-3">
-      <label for="movieChoice" class="form-label">Choose a movie:</label>
-      <select class="form-select" id="movieChoice" aria-label="Default select example">
-        <option value="" selected>Choose a movie</option>
-        <option value="movieOne">Movie1</option>
-        <option value="movieTwo">Movie2</option>
-        <option value="movieThree">Movie3</option>
-      </select>
+    <div class="col-8">
+      <h1 class="movieTitle">Movie Title</h1>
+      <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda porro modi voluptates
+        aliquam impedit! Exercitationem fuga minus hic, mollitia placeat saepe perferendis maxime iure doloremque optio
+        commodi quos expedita alias.</p>
+
+      <!--select movie-->
+      <div class="mb-3">
+        <label for="movieChoice" class="form-label">Choose a movie:</label>
+        <select class="form-select" id="movieChoice" aria-label="Default select example">
+          <option value="" selected>Choose a movie</option>
+          <option value="movieOne">Movie1</option>
+          <option value="movieTwo">Movie2</option>
+          <option value="movieThree">Movie3</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="viewSeats">View Seats</button>
+
+      <!--Movie Information / Seat icon-->
+      <div class="movieInfo mb-3 row">
+
+        <div class="movieLabel col">
+          <div>
+            <p class="labelTitle">Theatre No</p>
+            <p>157</p>
+          </div>
+
+          <div>
+            <p class="labelTitle">Date</p>
+            <p>April 28, 2021</p>
+          </div>
+
+          <div>
+            <p class="labelTitle">Show time</p>
+            <p>14:30</p>
+          </div>
+        </div>
+
+        <div class="seatLabel col">
+          <p><i class="flaticon-armchair available"></i>Available</p>
+          <p><i class="flaticon-armchair booked"></i>Booked</p>
+          <p><i class="flaticon-armchair selected"></i>Selected</p>
+        </div>
+
+      </div>
+
+      <!--Screen-->
+      <div class="screenLine mb-3">
+        <div></div>
+        <p>screen</p>
+      </div>
+
+      <!--Seat-->
+      <div class="seat-container mb-3">
+
+        <div class="seatRow A">
+          <p class="numLeft">A</p>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <p class="numRight">A</p>
+        </div>
+
+        <div class="seatRow B">
+          <p class="numLeft">B</p>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <p class="numRight">B</p>
+        </div>
+
+        <div class="seatRow C">
+          <p class="numLeft">C</p>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <p class="numRight">C</p>
+        </div>
+
+        <hr class="centerLine">
+
+        <div class="seatRow D">
+          <p class="numLeft">D</p>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <p class="numRight">D</p>
+        </div>
+
+        <div class="seatRow E">
+          <p class="numLeft">E</p>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <div class="seat"><i class="flaticon-armchair"></i></div>
+          <p class="numRight">E</p>
+        </div>
+
+        <div class="seatRow F">
+          <p class="numLeft">F</p>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <div class="seat"><i class="flaticon-couch"></i></div>
+          <p class="numRight">F</p>
+        </div>
+
+      </div>
+
+      <div class="note">
+        <span><i class="flaticon-couch"> </i> VIP: $20/ticket</span>
+        <span><i class="flaticon-armchair"> </i> Regular seats: $10/ticket</span>
+      </div>
+      
     </div>
 
-    <button type="submit" class="btn btn-primary">View Seats</button>
+    <div class="col-4">
+      <h2>Trailer</h2>
 
-    <!--Movie Information / Seat icon-->
-    <div class="seatLabel">
-      <div>
-        <p>Theatre No</p>
-        <p>157</p>
+      <div class="trailer">
+        Movie Trailer Here
       </div>
-      <div>
-        <p>Date</p>
-        <p>April 28, 2021</p>
+
+      <div class="yourSeat">
+        <h3>Your Seats</h3>
+
+        <div class="row">
+          <p class="type col">Regular</p>
+          <p class="number regNum col">2</p>
+          <p class="subTotal regSub col">$20</p>
+        </div>
+
+        <div class="row">
+          <p class="type col">VIP</p>
+          <p class="number vipNum col">1</p>
+          <p class="subTotal vipSub col">$20</p>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <p class="total col">TOTAL</p>
+          <p class="number totalNum col">3</p>
+          <p class="sum col">$30</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add to cart</button>
       </div>
-      <div>
-        <p>Show time</p>
-        <p>14:30</p>
-      </div>
-      <p><i class="flaticon-armchair"></i>Available</p>
-      <p><i class="flaticon-armchair"></i>Booked</p>
-      <p><i class="flaticon-armchair"></i>Selected</p>
     </div>
-
-    <!--Screen-->
-    <div>
-      <div>screen line curve</div>
-      <p>screen</p>
-    </div>
-
-    <!--Seat-->
-    <div class="seat-container">
-
-      <div class="row">
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-      </div>
-
-      <div class="row">
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-      </div>
-
-      <div class="row">
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-        <i class="flaticon-armchair"></i>
-      </div>
-
-    </div>
-
-    <!--vip seat-->
-    <!-- <i class="flaticon-couch"></i> -->
-
 
     <!--footer-->
-    <footer class="footer">
-      <h4>
+    <footer class="col footer mb-3">
+      <div>
         ©Yuki Matsubara 2021. All Rights Reserved.
         <a href="https://www.linkedin.com/in/yukimatsubara/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/YukiRamu" target="_blank"><i class="fab fa-github-square"></i></a>
-      </h4>
+      </div>
     </footer>
 
   </div>
-
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"

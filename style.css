@@ -1,2 +1,179 @@
-/**/
+/* Color Palette*/
+/* Global setting*/
+.flaticon-couch {
+  font-size: 1.2rem;
+}
+
+body .container {
+  min-height: 100vh;
+  max-width: 90vw;
+  margin: 1rem auto;
+  background-color: beige;
+}
+
+body .container .description {
+  width: 50%;
+}
+
+body .container .btn {
+  margin-bottom: 1rem;
+}
+
+body .container .movieInfo {
+  background-color: antiquewhite;
+}
+
+body .container .movieInfo .movieLabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+body .container .movieInfo .movieLabel .labelTitle {
+  font-size: smaller;
+  margin-bottom: 0;
+}
+
+body .container .movieInfo .seatLabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body .container .movieInfo .seatLabel i {
+  padding-right: 1rem;
+}
+
+body .container .movieInfo .seatLabel .available {
+  color: white;
+  padding-right: 1rem;
+}
+
+body .container .movieInfo .seatLabel .booked {
+  color: gray;
+}
+
+body .container .movieInfo .seatLabel .selected {
+  color: aqua;
+}
+
+body .container .screenLine div {
+  background-color: pink;
+  height: 1.5rem;
+  border-top-right-radius: 150% 7vw;
+  border-top-left-radius: 150% 7vw;
+  width: 90%;
+  margin: auto;
+}
+
+body .container .screenLine p {
+  text-align: center;
+}
+
+body .container .seat-container {
+  background-color: rgba(37, 36, 37, 0.42);
+}
+
+body .container .seat-container .centerLine {
+  width: 50%;
+  margin: auto;
+}
+
+body .container .seat-container .seatRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+body .container .seat-container .seatRow .numLeft {
+  position: absolute;
+  left: 3%;
+}
+
+body .container .seat-container .seatRow .numRight {
+  position: absolute;
+  right: 3%;
+}
+
+body .container .seat-container .seatRow .seat {
+  padding: 0.5rem;
+}
+
+body .container .seat-container .seatRow .seat .flaticon-armchair {
+  color: white;
+}
+
+body .container .seat-container .seatRow .seat .flaticon-armchair.selected {
+  color: aqua;
+}
+
+body .container .seat-container .seatRow .seat .flaticon-armchair.booked {
+  color: gray;
+}
+
+body .container .seat-container .seatRow .seat .flaticon-couch {
+  padding: 0.5rem;
+  color: white;
+}
+
+body .container .seat-container .seatRow .seat .flaticon-couch.selected {
+  color: aqua;
+}
+
+body .container .seat-container .seatRow .seat .flaticon-couch.booked {
+  color: gray;
+}
+
+body .container .note span {
+  margin: 1rem;
+}
+
+body .container .note span i {
+  vertical-align: middle;
+}
+
+body .container .trailer {
+  min-height: 50%;
+  background-color: gray;
+}
+
+body .container .yourSeat {
+  min-height: 50%;
+}
+
+body .container .yourSeat .number {
+  text-align: center;
+}
+
+body .container .yourSeat .total {
+  color: red;
+}
+
+body .container .yourSeat .sum {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+body .container .yourSeat .row {
+  line-height: 100%;
+}
+
+body .container .footer {
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */

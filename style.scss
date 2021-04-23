@@ -1,1 +1,143 @@
-/**/
+/* Color Palette*/
+$white: white; //available
+$gray: gray; //booked
+$blue: aqua; //selected
+
+/* Global setting*/
+.flaticon-couch {
+  font-size: 1.2rem;
+}
+
+body {
+  .container {
+    //seat selection part (col-8)
+    min-height: 100vh;
+    max-width: 90vw;
+    margin: 1rem auto;
+    background-color: beige;
+    .description {
+      width: 50%;
+    }
+    .btn {
+      margin-bottom: 1rem;
+    }
+    .movieInfo {
+      background-color: antiquewhite;
+      .movieLabel {
+        display: flex;
+        justify-content: space-around;
+        .labelTitle {
+          font-size: smaller;
+          margin-bottom: 0;
+        }
+      }
+      .seatLabel {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: flex-end;
+        i {
+          padding-right: 1rem;
+        }
+        .available {
+          color: $white;
+          padding-right: 1rem;
+        }
+        .booked {
+          color: $gray;
+        }
+        .selected {
+          color: $blue;
+        }
+      }
+    }
+    .screenLine {
+      div {
+        background-color: pink;
+        height: 1.5rem;
+        border-top-right-radius: 150% 7vw;
+        border-top-left-radius: 150% 7vw;
+        width: 90%;
+        margin: auto;
+      }
+      p {
+        text-align: center;
+      }
+    }
+    .seat-container {
+      background-color: rgba(37, 36, 37, 0.42);
+      .centerLine {
+        width: 50%;
+        margin: auto;
+      }
+      .seatRow {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        .numLeft {
+          position: absolute;
+          left: 3%;
+        }
+        .numRight {
+          position: absolute;
+          right: 3%;
+        }
+        .seat {
+          padding: 0.5rem;
+          .flaticon-armchair {
+            color: $white;
+          }
+          .flaticon-armchair.selected {
+            color: $blue;
+          }
+          .flaticon-armchair.booked {
+            color: $gray;
+          }
+          .flaticon-couch {
+            padding: 0.5rem;
+            color: $white;
+          }
+          .flaticon-couch.selected {
+            color: $blue;
+          }
+          .flaticon-couch.booked {
+            color: $gray;
+          }
+        }
+      }
+    }
+    .note {
+      span {
+        margin: 1rem;
+        i {
+          vertical-align: middle;
+        }
+      }
+    }
+    //Your seat part (col-4)
+    .trailer {
+      min-height: 50%;
+      background-color: gray;
+    }
+    .yourSeat {
+      min-height: 50%;
+      .number {
+        text-align: center;
+      }
+      .total {
+        color: red;
+      }
+      .sum {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      .row {
+        line-height: 100%;
+      }
+    }
+
+    .footer {
+      text-align: center;
+    }
+  }
+}
