@@ -68,7 +68,8 @@ class UI {
     //check seat type
     (seat.classList.contains("flaticon-armchair")) ? UI._seatType = "regular" : UI._seatType = "vip";
 
-    console.log(UI._seatType);
+    console.log(UI._seatType); //regular or vip
+
 
     //つづき、タイプごとに価格input by using object
 
@@ -120,7 +121,11 @@ for (let i = 0; i < vipSeats.length; i++) {
 // });
 
 
-viewSeatsBtn.addEventListener("click", () => {
-  alert("button is clicked");
-});
+// viewSeatsBtn.addEventListener("click", () => {
+//   alert("button is clicked");
+// });
+
+function test() {
+  console.log("view seat button is clicked");
+}
 
