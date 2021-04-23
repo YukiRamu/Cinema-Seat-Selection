@@ -66,12 +66,12 @@ class UI {
   static addSeats = (seat) => {
     console.log("target seats is ", seat.classList);
     //check seat type
-    (seat.classList.contains("flaticon-armchair")) ? UI._seatType = "regular" : UI._seatType = "vip" ;
-    
+    (seat.classList.contains("flaticon-armchair")) ? UI._seatType = "regular" : UI._seatType = "vip";
+
     console.log(UI._seatType);
 
     //つづき、タイプごとに価格input by using object
-    
+
     // for (let i = 0; i < seat.length; i++) {
     //   console.log("counting")
     //   if(seat[i].firstChild.classList[1] === "selected") {
@@ -116,3 +116,9 @@ for (let i = 0; i < vipSeats.length; i++) {
 viewSeatsBtn.addEventListener("click", () => {
   console.log("view seats button is clicked");
 })
+
+const testFunc = () => {
+  console.log("button is clicked");
+}
+// button click for mobile
+$('#viewSeats').on(touchEvent, testFunc);
