@@ -22,11 +22,13 @@ const regularSubtotal = document.querySelector(".regSub");
 const vipSubtotal = document.querySelector(".vipSub");
 const totalPrice = document.querySelector(".sum");
 
-let regularSeatArray = [];
-let vipSeatArray = [];
+//let regularSeatArray = [];
+//let vipSeatArray = [];
 
 let regularSeatCount = 0;
 let vipSeatCount = 0;
+let regSubTtl = 0;
+let vipSubTtl = 0;
 
 //object
 const seatPrice = {
@@ -58,9 +60,8 @@ class Seat {
 class UI {
   constructor() {
     this._seatType;
-    this._regularSubTotal;
-    this._vipSubTotal;
     this._totalPrice;
+    this._totalTicketNum;
   }
   //method
   //#1 Mark the seat as selected
@@ -69,11 +70,11 @@ class UI {
     //add "selected" class if available, change back to "available" when clicked again
     target.classList.toggle("selected");
     console.log(target);
-    UI.addSeats(target);
+    UI.getSeatCount(target);
   }
 
   //#2 Add seats to Your Seats
-  static addSeats(seat) {
+  static getSeatCount(seat) {
     console.log("target seats is ", seat.classList);
     //check seat type
     (seat.classList.contains("flaticon-armchair")) ? UI._seatType = "regular" : UI._seatType = "vip";
@@ -85,29 +86,42 @@ class UI {
       regularSeatCount++;
       regularTicketNum.innerHTML = regularSeatCount; //display reg ticket num
       console.log("regular Seat count is ", regularSeatCount);
-      UI.calcTotal(regularSeatCount);
-    } else {
+      UI.calcTotalPrice(regularSeatCount, UI._seatType);
+    } else if (UI._seatType === "vip") {
       vipSeatCount++;
       vipTicketNum.innerHTML = vipSeatCount; //display vip ticket num
       console.log("vip Seat count is ", vipSeatCount);
-      UI.calcTotal(vipSeatCount);
+      UI.calcTotalPrice(vipSeatCount, UI._seatType);
     }
+
+    UI._totalTicketNum = regularSeatCount + vipSeatCount;
+    totalTicketNum.innerHTML = UI._totalTicketNum;
+
     return regularSeatCount, vipSeatCount, UI._seatType;
   }
 
   //#3 Calculate the price and show total
-  static calcTotal(seatNum, seatType) {
+  static calcTotalPrice(seatNum, seatType) {
+
+    //sub total
     if (seatType === "regular") {
-      UI._regularSubTotal = seatPrice["regular"] * seatNum;
-      regularSubtotal.innerHTML = `$ ${UI._regularSubTotal}`;
-    } else {
-      UI._vipSubTotal = seatPrice["vip"] * seatNum;
-      vipSubtotal.innerHTML = `$ ${UI._vipSubTotal}`;
+      console.log("calc reg")
+      regSubTtl = seatPrice["regular"] * seatNum;
+      regularSubtotal.innerHTML = `$ ${regSubTtl}`;
+    } else if (seatType === "vip") {
+      console.log("calc vip")
+      vipSubTtl = seatPrice["vip"] * seatNum;
+      vipSubtotal.innerHTML = `$ ${vipSubTtl}`;
     }
+    //total
+    console.log("reg sub total is ", regSubTtl, vipSubTtl);
+
+    UI._totalPrice = regSubTtl + vipSubTtl;
+    totalPrice.innerHTML = `$ ${UI._totalPrice}`;
+
   }
 
 }
-
 
 //When view seats button is clicked
 //display seat map
@@ -129,6 +143,8 @@ for (let i = 0; i < vipSeats.length; i++) {
 
 // set selected = true == > can judge from the class
 
+//つづき　Selectedからキャンセルした時
+
 // #1 change the availability to selected 
 // #2 add to the regularSeatArray and vipSeatArray
 // #3 local storage
@@ -147,7 +163,32 @@ for (let i = 0; i < vipSeats.length; i++) {
 //   alert("button is clicked");
 // });
 
-function test() {
+function btnTest() {
   alert("view seat button is clicked");
 };
 
+//=======================================Testing for mobile
+class Test {
+  constructor() {
+    this._seatType;
+    this._totalPrice = 0; //set initial value 0
+    this._totalTicketNum;
+  }
+  test() {
+    console.log(this._totalPrice);
+   }
+}
+let a = new Test();
+a.test();
+
+class Test2 {
+  constructor() {
+    this._seatType;
+    this._totalPrice = 0; //set initial value 0
+    this._totalTicketNum;
+  }
+  static test() {
+    console.log(Test2._totalPrice);
+   }
+}
+Test2.test();
