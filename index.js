@@ -148,6 +148,6 @@ for (let i = 0; i < vipSeats.length; i++) {
 // });
 
 function test() {
-  //alert("view seat button is clicked");
+  alert("view seat button is clicked");
 };
 
