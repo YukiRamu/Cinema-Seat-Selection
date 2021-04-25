@@ -56,16 +56,16 @@ body .container .movieInfo .seatLabel i {
   padding-right: 1rem;
 }
 
-body .container .movieInfo .seatLabel .available {
+body .container .movieInfo .seatLabel .availableLabel {
   color: white;
   padding-right: 1rem;
 }
 
-body .container .movieInfo .seatLabel .booked {
+body .container .movieInfo .seatLabel .bookedLabel {
   color: gray;
 }
 
-body .container .movieInfo .seatLabel .selected {
+body .container .movieInfo .seatLabel .selectedLabel {
   color: aqua;
 }
 
