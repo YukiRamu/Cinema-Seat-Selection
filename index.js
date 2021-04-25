@@ -2,7 +2,7 @@
 // The data is stored on the localstorage
 
 /* Variables */
-//const movieChoice = document.getElementById("movieChoice"); //dropdown
+const movieChoice = document.getElementById("movieChoice"); //dropdown
 const viewSeatsBtn = document.getElementById("viewSeats"); //view seat btn
 //const seatRow = document.querySelectorAll(".seatRow"); // seat rows (4)
 const seat = document.querySelectorAll(".seat"); //all seats div 
@@ -32,10 +32,11 @@ class Movie {
   }
 }
 
-class Seat {
-  constructor(selected, location) {
+class SeatMap {
+  constructor(seatType, selected, locationIndex) {
+    this._seatType = seatType;
     this._selected = selected;
-    this._location = location;
+    this._locationIndex = locationIndex;
   }
 }
 
@@ -50,7 +51,6 @@ class UI {
   constructor(seatType, isSelected) {
     this._seatType = seatType; //regular or vip
     this._isSelected = isSelected // is "selected" in classLise? true or false
-
     this._totalTicketNum = 0;
     this._totalPrice;
   }
@@ -59,6 +59,7 @@ class UI {
   static vipSeatCount = 0;
   static regSubTtl = 0;
   static vipSubTtl = 0;
+
   //method
   //#1 add "selected" class to the target or remove it 
   toggleSelected(target) {
@@ -119,9 +120,6 @@ class UI {
 //regular
 for (let i = 0; i < regularSeats.length; i++) {
   regularSeats[i].addEventListener("click", (event) => {
-    //get the data from local strage
-    //seatcount--> pass it to the instance both reg and vip
-
     if (event.target.classList.contains("selected")) {
       let regular = new UI("regular", true);
       regular.toggleSelected(event.target);
@@ -136,8 +134,6 @@ for (let i = 0; i < regularSeats.length; i++) {
 //vip
 for (let i = 0; i < vipSeats.length; i++) {
   vipSeats[i].addEventListener("click", (event) => {
-    //seatcount--> pass it to the instance both reg and vip
-
     if (event.target.classList.contains("selected")) {
       let vip = new UI("vip", true);
       vip.toggleSelected(event.target);
@@ -153,11 +149,36 @@ for (let i = 0; i < vipSeats.length; i++) {
 /* When "view Seats" button is clicked */
 const displaySeatMap = () => {
   alert("view seat button is clicked");
+  //get seatMap from local storage
+  let seatMap = JSON.parse(localStorage.getItem("seatMap"));
+  console.log(seatMap);
 };
 
 /* When "Add to cart" button is clicked */
+let seatMapArray = [];
+let seatType;
+let selectedClass;
 const addToCart = () => {
-  alert("add to cart button is clicked");
+  let seatArray = Array.from(seat);
+
+  for (let i = 0; i < seatArray.length; i++) {
+    seatType = seatArray[i].firstChild.classList[1];
+    selectedClass = seatArray[i].firstChild.classList[2];
+    seatMapArray.push(
+      {
+        seatType: seatType, //regSeat or vipSeat
+        selected: selectedClass, //selected or undefined
+        locationIndex: i
+      }
+    )
+  };
+  console.log(seatMapArray);
+
+  //clear old data
+  localStorage.removeItem("seatMap", "movieTitle");
+  //store seatMap into local storage
+  localStorage.setItem("seatMap", JSON.stringify(seatMapArray));
+  localStorage.setItem("movieTitle", JSON.stringify(movieChoice.value));
 };
 
 
