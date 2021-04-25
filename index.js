@@ -65,10 +65,12 @@ class UI {
     //count the number of tickets
     if (this._seatType === "regular") {
       UI.regularSeatCount++;
+      console.log( UI.regularSeatCount);
       regularTicketNum.innerHTML = UI.regularSeatCount; //display reg ticket num
       UI.calcTotalPrice(UI.regularSeatCount, this._seatType);
     } else if (this._seatType === "vip") {
       UI.vipSeatCount++;
+      console.log( UI.vipSeatCount);
       vipTicketNum.innerHTML = UI.vipSeatCount; //display vip ticket num
       UI.calcTotalPrice(UI.vipSeatCount, this._seatType);
     }
@@ -116,6 +118,8 @@ class UI {
     regularSubtotal.innerHTML = "$ 0";
     vipSubtotal.innerHTML = "$ 0";
     totalPrice.innerHTML = "$ 0";
+    UI.regularSeatCount = 0;
+    UI.vipSeatCount = 0;
   }
 }
 
