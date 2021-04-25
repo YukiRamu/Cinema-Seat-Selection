@@ -34,6 +34,7 @@
     <div class="col-8">
       <h1 class="titleHeader">
         <!--Title to be applied-->
+        Pirates of the Caribbean
       </h1>
       <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda porro modi voluptates
         aliquam impedit! Exercitationem fuga minus hic, mollitia placeat saepe perferendis maxime iure doloremque optio
@@ -48,15 +49,14 @@
       <div class="mb-3">
         <label for="movieChoice" class="form-label">Choose a movie:</label>
         <select class="form-select" id="movieChoice" aria-label="Default select example">
-          <option value="" selected>Choose a movie</option>
           <option value="Pirates of the Caribbean">Pirates of the Caribbean</option>
           <option value="Harry Potter">Harry Potter</option>
           <option value="Fast and Furious">Fast and Furious</option>
         </select>
       </div>
 
-      <a class="btn btn-primary" href="#seatContainer" role="button" id="viewSeats" onclick="displaySeatMap(movieChoice.value)">View
-        Seats</a>
+      <button type="submit" class="btn btn-primary" id="viewSeats" onclick="displaySeatMap(movieChoice.value)">View
+        Seats</button>
 
       <!--Movie Information / Seat icon-->
       <div class="movieInfo mb-3 row">
@@ -220,7 +220,7 @@
           <p class="sum col">$ 0</p>
         </div>
 
-        <button type="submit" class="btn btn-primary" onclick="checkOut()">Check out</button>
+        <button type="submit" class="btn btn-primary" onclick="checkOut(movieChoice.value)">Check out</button>
 
         <!--planning
         //cart screen (modal or another html, maybe another html)
