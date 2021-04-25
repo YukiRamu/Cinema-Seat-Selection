@@ -147,36 +147,46 @@ for (let i = 0; i < vipSeats.length; i++) {
 };
 
 /* When "view Seats" button is clicked */
+//get seatMap from local storage
 const displaySeatMap = () => {
-  alert("view seat button is clicked");
-  //get seatMap from local storage
   let seatMap = JSON.parse(localStorage.getItem("seatMap"));
-  console.log(seatMap);
+  let movieTitle = JSON.parse(localStorage.getItem("movieTitle"));
+
+  //find the index of NodeList, "seat" where classList selected to be added
+  let listOfIndexWithSelected = []
+  seatMap.map((elem) => {
+    if (elem.selected === "selected") {
+      listOfIndexWithSelected.push(seatMap.indexOf(elem));
+    }
+  })
+  //add classList
+  listOfIndexWithSelected.map(elem => seat[elem].childNodes[0].classList.add("selected"));
+
 };
 
 /* When "Add to cart" button is clicked */
+//Store SeatMap into localStorage
 let seatMapArray = [];
 let seatType;
 let selectedClass;
-const addToCart = () => {
-  let seatArray = Array.from(seat);
 
-  for (let i = 0; i < seatArray.length; i++) {
-    seatType = seatArray[i].firstChild.classList[1];
-    selectedClass = seatArray[i].firstChild.classList[2];
-    seatMapArray.push(
+const addToCart = () => {
+  let seatArray = Array.from(seat); //convert NodeList to Array
+  seatMapArray = []; //clear the array for the second+ time
+
+  seatArray.map(elem => {
+    return seatMapArray.push(
       {
-        seatType: seatType, //regSeat or vipSeat
-        selected: selectedClass, //selected or undefined
-        locationIndex: i
+        seatType: elem.firstChild.classList[1], //regSeat or vipSeat
+        selected: elem.firstChild.classList[2], //selected or undefined
+        locationIndex: seatArray.indexOf(elem)
       }
     )
-  };
+  });
+
   console.log(seatMapArray);
 
-  //clear old data
-  localStorage.removeItem("seatMap", "movieTitle");
-  //store seatMap into local storage
+  //store new data
   localStorage.setItem("seatMap", JSON.stringify(seatMapArray));
   localStorage.setItem("movieTitle", JSON.stringify(movieChoice.value));
 };
