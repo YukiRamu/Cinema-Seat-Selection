@@ -1,15 +1,16 @@
-// Pick a movie => Array
-// The data is stored on the localstorage
-
-/* Variables */
+/* =========== Variables =========== */
+//button
 const movieChoice = document.getElementById("movieChoice"); //dropdown
 const viewSeatsBtn = document.getElementById("viewSeats"); //view seat btn
-//const seatRow = document.querySelectorAll(".seatRow"); // seat rows (4)
-const seat = document.querySelectorAll(".seat"); //all seats div 
+
+//Title
+const titleHeader = document.querySelector(".titleHeader");
 
 //Seat Panel
+const seat = document.querySelectorAll(".seat"); //all seats div 
 const regularSeats = document.querySelectorAll(".regSeat"); // all regular seats 
 const vipSeats = document.querySelectorAll(".vipSeat"); // all vip seats 
+//const seatRow = document.querySelectorAll(".seatRow"); // seat rows (4)
 
 //Price Calc
 const regularTicketNum = document.querySelector(".regNum");
@@ -25,7 +26,7 @@ const seatPrice = {
   vip: 20
 }
 
-/* Class */
+/* =========== Class =========== */
 class Movie {
   constructor() {
 
@@ -116,6 +117,57 @@ class UI {
   }
 }
 
+/* ========== Call methods ==========*/
+/* When the movie is picked, display the title */
+movieChoice.onchange = () => {
+  titleHeader.innerHTML = movieChoice.value;
+};
+
+/* When "view Seats" button is clicked */
+//get seatMap from local storage
+const displaySeatMap = (title) => {
+  let seatMap = JSON.parse(localStorage.getItem("seatMap")); //get all from localStorage
+
+  //For the very first time, localStorage is null
+  if ((seatMap === null)) {
+    //store emply array
+    //The JSON.stringify() method converts JavaScript objects into strings.
+    //array -> convert to object
+    localStorage.setItem("seatMap", JSON.stringify(Object.entries([])));
+  } else {
+    //find the index of NodeList, "seat" where classList selected to be added
+    let listOfIndexWithSelected = [];
+    let listOfIndexWithoutSelected = [];
+
+    //prepare the seatMap data only for the movie selected
+    let filteredSeatMap = seatMap.filter(elem => elem.movieTitle === title);
+
+    if (filteredSeatMap.length === 0) {
+      //when no data stored for the selected movie, show all seats as available
+      Array.from(regularSeats).forEach(elem => {
+        elem.classList.remove("selected");
+      });
+      Array.from(vipSeats).forEach(elem => {
+        elem.classList.remove("selected");
+      });
+    } else {
+      filteredSeatMap.map((elem) => {
+        if (elem.seatMap[0].hasOwnProperty("selected")) {
+          //find the index where class "selected" to be added
+          listOfIndexWithSelected.push(filteredSeatMap.indexOf(elem));
+          //add classList where alreay selected
+          listOfIndexWithSelected.map(elem => seat[elem].childNodes[0].classList.add("selected"));
+        } else {
+          //find the index where class "selected" to be removed
+          listOfIndexWithoutSelected.push(filteredSeatMap.indexOf(elem));
+          //remove classList where alreay selected
+          listOfIndexWithoutSelected.map(elem => seat[elem].childNodes[0].classList.remove("selected"));
+        }
+      });
+    }
+  };
+};
+
 /* When the seat is selected */
 //regular
 for (let i = 0; i < regularSeats.length; i++) {
@@ -146,40 +198,28 @@ for (let i = 0; i < vipSeats.length; i++) {
   });
 };
 
-/* When "view Seats" button is clicked */
-//get seatMap from local storage
-const displaySeatMap = () => {
-  let seatMap = JSON.parse(localStorage.getItem("seatMap"));
-  let movieTitle = JSON.parse(localStorage.getItem("movieTitle"));
-
-  //find the index of NodeList, "seat" where classList selected to be added
-  let listOfIndexWithSelected = []
-  seatMap.map((elem) => {
-    if (elem.selected === "selected") {
-      listOfIndexWithSelected.push(seatMap.indexOf(elem));
-    }
-  })
-  //add classList
-  listOfIndexWithSelected.map(elem => seat[elem].childNodes[0].classList.add("selected"));
-
-};
-
 /* When "Add to cart" button is clicked */
 //Store SeatMap into localStorage
-let seatMapArray = [];
+let seatArrayfromNodeList
+//let seatMapArray = [];
 let seatType;
 let selectedClass;
 
-const addToCart = () => {
-  let seatArray = Array.from(seat); //convert NodeList to Array
-  seatMapArray = []; //clear the array for the second+ time
+const checkOut = () => {
 
-  seatArray.map(elem => {
+  let seatMapArray = JSON.parse(localStorage.getItem("seatMap")); //get all from localStorage
+
+  seatArrayfromNodeList = Array.from(seat);
+
+  seatArrayfromNodeList.map(elem => {
     return seatMapArray.push(
       {
-        seatType: elem.firstChild.classList[1], //regSeat or vipSeat
-        selected: elem.firstChild.classList[2], //selected or undefined
-        locationIndex: seatArray.indexOf(elem)
+        movieTitle: movieChoice.value,
+        seatMap: [{
+          seatType: elem.firstChild.classList[1], //regSeat or vipSeat
+          selected: elem.firstChild.classList[2], //selected or undefined
+          locationIndex: seatArrayfromNodeList.indexOf(elem)
+        }]
       }
     )
   });
@@ -188,11 +228,4 @@ const addToCart = () => {
 
   //store new data
   localStorage.setItem("seatMap", JSON.stringify(seatMapArray));
-  localStorage.setItem("movieTitle", JSON.stringify(movieChoice.value));
 };
-
-
-
-
-
-
