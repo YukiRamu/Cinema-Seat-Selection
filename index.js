@@ -19,9 +19,6 @@ const regularSubtotal = document.querySelector(".regSub");
 const vipSubtotal = document.querySelector(".vipSub");
 const totalPrice = document.querySelector(".sum");
 
-//let regularSeatArray = [];
-//let vipSeatArray = [];
-
 //object
 const seatPrice = {
   regular: 10,
@@ -68,7 +65,7 @@ class UI {
     target.classList.toggle("selected");
   }
 
-  //#2 Add seats to Your Seats
+  //#2 Add seats to Your Seats Panel
   addSeat() {
     //count the number of tickets
     if (this._seatType === "regular") {
@@ -80,7 +77,7 @@ class UI {
       vipTicketNum.innerHTML = UI.vipSeatCount; //display vip ticket num
       UI.calcTotalPrice(UI.vipSeatCount, this._seatType);
     }
-
+    //total ticket cound
     this._totalTicketNum = UI.regularSeatCount + UI.vipSeatCount;
     totalTicketNum.innerHTML = this._totalTicketNum;
   }
@@ -95,12 +92,12 @@ class UI {
       UI.vipSubTtl = seatPrice["vip"] * seatNum;
       vipSubtotal.innerHTML = `$ ${UI.vipSubTtl}`;
     }
-    //total
-    UI._totalPrice = UI.regSubTtl + UI.vipSubTtl;
-    totalPrice.innerHTML = `$ ${UI._totalPrice}`;
+    //total ticket price
+    this._totalPrice = UI.regSubTtl + UI.vipSubTtl;
+    totalPrice.innerHTML = `$ ${this._totalPrice}`;
   }
 
-  //#4 Remove seats from Your Seats
+  //#4 Remove seats from Your Seats panel
   removeSeat() {
     //recount the number of tickets
     if (this._seatType === "regular") {
@@ -112,18 +109,13 @@ class UI {
       vipTicketNum.innerHTML = UI.vipSeatCount; //display vip ticket num
       UI.calcTotalPrice(UI.vipSeatCount, this._seatType);
     }
-
+    //total ticket count
     this._totalTicketNum = UI.regularSeatCount + UI.vipSeatCount;
     totalTicketNum.innerHTML = this._totalTicketNum;
   }
-
 }
 
-//When view seats button is clicked
-//display seat map
-
 /* When the seat is selected */
-
 //regular
 for (let i = 0; i < regularSeats.length; i++) {
   regularSeats[i].addEventListener("click", (event) => {
@@ -158,24 +150,18 @@ for (let i = 0; i < vipSeats.length; i++) {
   });
 };
 
-
-// #1 change the availability to selected 
-// #2 add to the regularSeatArray and vipSeatArray
-// #3 local storage
-
-
-//=======================================Testing for mobile
-// var touchEvent = ((window.ontouchstart !== null) ? 'click' : 'touchstart');
-
-// $(document).on(touchEvent, '#viewSeats', function () {
-//   alert("JQuery button is clicked");
-// });
-
-
-// viewSeatsBtn.addEventListener("click", () => {
-//   alert("button is clicked");
-// });
-
-function btnTest() {
+/* When "view Seats" button is clicked */
+const displaySeatMap = () => {
   alert("view seat button is clicked");
 };
+
+/* When "Add to cart" button is clicked */
+const addToCart = () => {
+  alert("add to cart button is clicked");
+};
+
+
+
+
+
+
