@@ -26,6 +26,7 @@ const totalTicketNum = document.querySelector(".totalNum");
 const regularSubtotal = document.querySelector(".regSub");
 const vipSubtotal = document.querySelector(".vipSub");
 const totalPrice = document.querySelector(".sum");
+const alertMsg = document.querySelector(".alert");
 
 //object
 const seatPrice = {
@@ -74,6 +75,8 @@ class UI {
       UI.regularSeatCount++;
       console.log(UI.regularSeatCount);
       regularTicketNum.innerHTML = UI.regularSeatCount; //display reg ticket num
+      // regularTicketNum.style.opacity = 1; // fadeIn animation 
+      // regularTicketNum.style.transform = "translateX(1rem)"; // fadeIn animation 
       UI.calcTotalPrice(UI.regularSeatCount, this._seatType);
     } else if (this._seatType === "vip") {
       UI.vipSeatCount++;
@@ -133,20 +136,20 @@ class UI {
 
   static showMap() {
     //Show map
-    seatLabel.style.display = "flex";
-    screenLine.style.display = "block";
-    seatContainer.style.display = "block";
-    note.style.display = "block";
-    yourSeat.style.display = "block";
+    seatLabel.classList.add("show");
+    screenLine.classList.add("show");
+    seatContainer.classList.add("show");
+    note.classList.add("show");
+    yourSeat.classList.add("show");
   }
 
   static hideMap() {
     //Hide map
-    seatLabel.style.display = "none";
-    screenLine.style.display = "none";
-    seatContainer.style.display = "none";
-    note.style.display = "none";
-    yourSeat.style.display = "none";
+    seatLabel.classList.remove("show");
+    screenLine.classList.remove("show");
+    seatContainer.classList.remove("show");
+    note.classList.remove("show");
+    yourSeat.classList.remove("show");
   }
 }
 
@@ -203,6 +206,7 @@ const displaySeatMap = (title) => {
 //regular
 for (let i = 0; i < regularSeats.length; i++) {
   regularSeats[i].addEventListener("click", (event) => {
+    alertMsg.classList.remove("show"); //remove alert if it is shown
     if (event.target.classList.contains("selected")) {
       let regular = new UI("regular", true);
       regular.toggleSelected(event.target);
@@ -216,6 +220,7 @@ for (let i = 0; i < regularSeats.length; i++) {
 };
 //vip
 for (let i = 0; i < vipSeats.length; i++) {
+  alertMsg.classList.remove("show"); //remove alert if it is shown
   vipSeats[i].addEventListener("click", (event) => {
     if (event.target.classList.contains("selected")) {
       let vip = new UI("vip", true);
@@ -239,7 +244,7 @@ let selectedClass;
 const checkOut = (title) => {
   //validation check
   if (totalPrice.innerHTML === "$ 0") {
-    alert("please select your seat.");
+    alertMsg.classList.add("show");
     return false;
   } else {
     //store data into localStorage

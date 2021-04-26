@@ -58,7 +58,7 @@
       <button type="submit" class="btn btn-primary" id="viewSeats" onclick="displaySeatMap(movieChoice.value)">View
         Seats</button>
 
-      <!--Movie Information / Seat icon-->      
+      <!--Movie Information / Seat icon-->
       <div class="movieInfo mb-3 row">
 
         <div class="movieLabel col">
@@ -224,6 +224,13 @@
 
         <button type="submit" class="btn btn-primary" onclick="checkOut(movieChoice.value)">Proceed to check
           out</button>
+        <div class="alert alert-danger" role="alert">
+          Please select your seat before checkout.
+        </div>
+
+        <!-- planning
+        //create another html for checkout or modal
+        // after the checkout completes, change the classlist to "booked" -->
 
         <!-- Button trigger modal -->
         <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

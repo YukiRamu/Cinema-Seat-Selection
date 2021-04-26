@@ -1,4 +1,43 @@
 /* Color Palette*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes scaleUp {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
 /* Global setting*/
 .flaticon-couch {
   font-size: 1.2rem;
@@ -50,6 +89,14 @@ body .container .movieInfo .seatLabel {
           align-items: flex-end;
 }
 
+body .container .movieInfo .seatLabel.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: fadeIn 1s linear;
+          animation: fadeIn 1s linear;
+}
+
 body .container .movieInfo .seatLabel i {
   padding-right: 1rem;
 }
@@ -71,6 +118,12 @@ body .container .screenLine {
   display: none;
 }
 
+body .container .screenLine.show {
+  display: block;
+  -webkit-animation: fadeIn 1s linear;
+          animation: fadeIn 1s linear;
+}
+
 body .container .screenLine div {
   background-color: pink;
   height: 1.5rem;
@@ -87,6 +140,12 @@ body .container .screenLine p {
 body .container .seat-container {
   display: none;
   background-color: rgba(37, 36, 37, 0.42);
+}
+
+body .container .seat-container.show {
+  display: block;
+  -webkit-animation: fadeIn 1s linear;
+          animation: fadeIn 1s linear;
 }
 
 body .container .seat-container .centerLine {
@@ -147,6 +206,12 @@ body .container .note {
   display: none;
 }
 
+body .container .note.show {
+  display: block;
+  -webkit-animation: fadeIn 1s linear;
+          animation: fadeIn 1s linear;
+}
+
 body .container .note span {
   margin: 1rem;
 }
@@ -165,6 +230,12 @@ body .container .yourSeat {
   min-height: 50%;
 }
 
+body .container .yourSeat.show {
+  display: block;
+  -webkit-animation: fadeIn 1s linear;
+          animation: fadeIn 1s linear;
+}
+
 body .container .yourSeat .number {
   text-align: center;
 }
@@ -180,6 +251,21 @@ body .container .yourSeat .sum {
 
 body .container .yourSeat .row {
   line-height: 100%;
+}
+
+body .container .yourSeat .btn {
+  margin-bottom: 0;
+}
+
+body .container .yourSeat .alert {
+  padding: 0.5rem 0.5rem;
+  display: none;
+}
+
+body .container .yourSeat .alert.show {
+  display: block;
+  -webkit-animation: fadeIn .3s linear;
+          animation: fadeIn .3s linear;
 }
 
 body .container .footer {
