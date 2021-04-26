@@ -38,9 +38,7 @@ body .container .movieInfo .movieLabel .labelTitle {
 }
 
 body .container .movieInfo .seatLabel {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-orient: horizontal;
@@ -69,6 +67,10 @@ body .container .movieInfo .seatLabel .selectedLabel {
   color: aqua;
 }
 
+body .container .screenLine {
+  display: none;
+}
+
 body .container .screenLine div {
   background-color: pink;
   height: 1.5rem;
@@ -83,6 +85,7 @@ body .container .screenLine p {
 }
 
 body .container .seat-container {
+  display: none;
   background-color: rgba(37, 36, 37, 0.42);
 }
 
@@ -140,6 +143,10 @@ body .container .seat-container .seatRow .seat .flaticon-couch.booked {
   color: gray;
 }
 
+body .container .note {
+  display: none;
+}
+
 body .container .note span {
   margin: 1rem;
 }
@@ -154,6 +161,7 @@ body .container .trailer {
 }
 
 body .container .yourSeat {
+  display: none;
   min-height: 50%;
 }
 

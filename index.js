@@ -1,7 +1,7 @@
 /* =========== Variables =========== */
 //button
 const movieChoice = document.getElementById("movieChoice"); //dropdown
-const viewSeatsBtn = document.getElementById("viewSeats"); //view seat btn
+//const viewSeatsBtn = document.getElementById("viewSeats"); //view seat btn
 
 //Title
 const titleHeader = document.querySelector(".titleHeader");
@@ -11,6 +11,13 @@ const seat = document.querySelectorAll(".seat"); //all seats div
 const regularSeats = document.querySelectorAll(".regSeat"); // all regular seats 
 const vipSeats = document.querySelectorAll(".vipSeat"); // all vip seats 
 //const seatRow = document.querySelectorAll(".seatRow"); // seat rows (4)
+
+//Seat Panel display control
+const seatLabel = document.querySelector(".seatLabel");
+const screenLine = document.querySelector(".screenLine");
+const seatContainer = document.querySelector(".seat-container");
+const note = document.querySelector(".note");
+const yourSeat = document.querySelector(".yourSeat");
 
 //Price Calc
 const regularTicketNum = document.querySelector(".regNum");
@@ -65,12 +72,12 @@ class UI {
     //count the number of tickets
     if (this._seatType === "regular") {
       UI.regularSeatCount++;
-      console.log( UI.regularSeatCount);
+      console.log(UI.regularSeatCount);
       regularTicketNum.innerHTML = UI.regularSeatCount; //display reg ticket num
       UI.calcTotalPrice(UI.regularSeatCount, this._seatType);
     } else if (this._seatType === "vip") {
       UI.vipSeatCount++;
-      console.log( UI.vipSeatCount);
+      console.log(UI.vipSeatCount);
       vipTicketNum.innerHTML = UI.vipSeatCount; //display vip ticket num
       UI.calcTotalPrice(UI.vipSeatCount, this._seatType);
     }
@@ -120,6 +127,8 @@ class UI {
     totalPrice.innerHTML = "$ 0";
     UI.regularSeatCount = 0;
     UI.vipSeatCount = 0;
+    UI.regSubTtl = 0;
+    UI.vipSubTtl = 0;
   }
 }
 
@@ -165,6 +174,14 @@ const displaySeatMap = (title) => {
       }
     });
   }
+
+  //Show map
+  seatLabel.style.display = "flex";
+  screenLine.style.display = "block";
+  seatContainer.style.display = "block";
+  note.style.display = "block";
+  yourSeat.style.display = "block";
+
 };
 
 /* When the seat is selected */
@@ -208,7 +225,9 @@ const checkOut = (title) => {
   //validation check
   if (totalPrice.innerHTML === "$ 0") {
     alert("please select your seat.");
+    return false;
   } else {
+    //store data into localStorage
     // #1: get all from localStorage
     let seatMapArray = JSON.parse(localStorage.getItem("seatMap")); //get all from localStorage
 

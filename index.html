@@ -58,7 +58,7 @@
       <button type="submit" class="btn btn-primary" id="viewSeats" onclick="displaySeatMap(movieChoice.value)">View
         Seats</button>
 
-      <!--Movie Information / Seat icon-->
+      <!--Movie Information / Seat icon-->      
       <div class="movieInfo mb-3 row">
 
         <div class="movieLabel col">
@@ -91,6 +91,8 @@
         <div></div>
         <p>screen</p>
       </div>
+
+      <!-- <div class="grayScreen"></div> -->
 
       <!--Seat-->
       <div class="seat-container mb-3" id="seatContainer">
@@ -220,12 +222,34 @@
           <p class="sum col">$ 0</p>
         </div>
 
-        <button type="submit" class="btn btn-primary" onclick="checkOut(movieChoice.value)">Check out</button>
+        <button type="submit" class="btn btn-primary" onclick="checkOut(movieChoice.value)">Proceed to check
+          out</button>
 
-        <!--planning
-        //cart screen (modal or another html, maybe another html)
-        //when the checkout is completed, change the seat status to booked
-        -->
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Launch static backdrop modal
+        </button> -->
+
+        <!-- Modal : Check out -->
+        <!-- <div class="modal fade checkOutModal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- Modal : Check out -->
 
       </div>
     </div>

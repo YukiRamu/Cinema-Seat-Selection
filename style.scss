@@ -2,6 +2,7 @@
 $white: white; //available
 $gray: gray; //booked
 $blue: aqua; //selected
+$grayTr: rgba(128, 128, 128, 0.627);
 
 /* Global setting*/
 .flaticon-couch {
@@ -33,7 +34,8 @@ body {
         }
       }
       .seatLabel {
-        display: flex;
+        display: none;
+        //display: flex;
         justify-content: space-around;
         flex-direction: row;
         align-items: flex-end;
@@ -53,6 +55,7 @@ body {
       }
     }
     .screenLine {
+      display: none;
       div {
         background-color: pink;
         height: 1.5rem;
@@ -65,7 +68,16 @@ body {
         text-align: center;
       }
     }
+    // .grayScreen {
+    //   width: 66.6666666667%;
+    //   height: 20%;
+    //   //background-color: $grayTr;
+    //   position: absolute;
+    //   z-index: 1;
+    //   background-color: rgba(240, 128, 128, 0.593);
+    // }
     .seat-container {
+      display: none;
       background-color: rgba(37, 36, 37, 0.42);
       .centerLine {
         width: 50%;
@@ -108,6 +120,7 @@ body {
       }
     }
     .note {
+      display: none;
       span {
         margin: 1rem;
         i {
@@ -121,6 +134,7 @@ body {
       background-color: gray;
     }
     .yourSeat {
+      display: none;
       min-height: 50%;
       .number {
         text-align: center;
