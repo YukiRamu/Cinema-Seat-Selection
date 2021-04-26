@@ -130,12 +130,31 @@ class UI {
     UI.regSubTtl = 0;
     UI.vipSubTtl = 0;
   }
+
+  static showMap() {
+    //Show map
+    seatLabel.style.display = "flex";
+    screenLine.style.display = "block";
+    seatContainer.style.display = "block";
+    note.style.display = "block";
+    yourSeat.style.display = "block";
+  }
+
+  static hideMap() {
+    //Hide map
+    seatLabel.style.display = "none";
+    screenLine.style.display = "none";
+    seatContainer.style.display = "none";
+    note.style.display = "none";
+    yourSeat.style.display = "none";
+  }
 }
 
 /* ========== Call methods ==========*/
 /* When the movie is picked, display the title */
 movieChoice.onchange = () => {
   titleHeader.innerHTML = movieChoice.value;
+  UI.hideMap();
 };
 
 /* When "view Seats" button is clicked */
@@ -176,11 +195,7 @@ const displaySeatMap = (title) => {
   }
 
   //Show map
-  seatLabel.style.display = "flex";
-  screenLine.style.display = "block";
-  seatContainer.style.display = "block";
-  note.style.display = "block";
-  yourSeat.style.display = "block";
+  UI.showMap();
 
 };
 
@@ -279,6 +294,7 @@ const checkOut = (title) => {
     //store new data
     localStorage.setItem("seatMap", JSON.stringify(seatMapArray));
     UI.clearCalcPanel();
+    UI.hideMap();
   }
 };
 
