@@ -46,7 +46,7 @@
       // when the button is hit, display all information
       -->
       <!--select movie-->
-      <div class="mb-3">
+      <div class="mb-3 search">
         <label for="movieChoice" class="form-label">Choose a movie:</label>
         <select class="form-select" id="movieChoice" aria-label="Default select example">
           <option value="Pirates of the Caribbean">Pirates of the Caribbean</option>
@@ -55,7 +55,7 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary" id="viewSeats" onclick="displaySeatMap(movieChoice.value)">View
+      <button type="submit" class="btn btn-light" id="viewSeats" onclick="displaySeatMap(movieChoice.value)" onmouse="this.style.background='#ec1a47'">View
         Seats</button>
 
       <!--Movie Information / Seat icon-->
@@ -64,17 +64,17 @@
         <div class="movieLabel col">
           <div>
             <p class="labelTitle">Theatre No</p>
-            <p>157</p>
+            <p class="content">157</p>
           </div>
 
           <div>
             <p class="labelTitle">Date</p>
-            <p>April 28, 2021</p>
+            <p class="content">April 28, 2021</p>
           </div>
 
           <div>
             <p class="labelTitle">Show time</p>
-            <p>14:30</p>
+            <p class="content">14:30</p>
           </div>
         </div>
 
@@ -196,7 +196,8 @@
       <h2>Trailer</h2>
 
       <div class="trailer">
-        Movie Trailer Here
+        <!-- Movie Trailer Here -->
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/naQr0uTrH_s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
 
       <div class="yourSeat">
@@ -222,8 +223,7 @@
           <p class="sum col">$ 0</p>
         </div>
 
-        <button type="submit" class="btn btn-primary" onclick="checkOut(movieChoice.value)">Proceed to check
-          out</button>
+        <button type="submit" class="btn btn-light" onclick="checkOut(movieChoice.value)">Check Out</button>
         <div class="alert alert-danger" role="alert">
           Please select your seat before checkout.
         </div>
