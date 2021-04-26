@@ -119,6 +119,7 @@ body {
         }
         .selectedLabel {
           color: $blue;
+          text-shadow: 0 0.1rem 0.5rem $blue;
         }
       }
     }
@@ -180,6 +181,7 @@ body {
           }
           .flaticon-armchair.selected {
             color: $blue;
+            text-shadow: 0 0.1rem 0.5rem $blue;
           }
           .flaticon-armchair.booked {
             color: $gray;
@@ -190,6 +192,7 @@ body {
           }
           .flaticon-couch.selected {
             color: $blue;
+            text-shadow: 0 0.1rem 0.5rem $blue;
           }
           .flaticon-couch.booked {
             color: $gray;

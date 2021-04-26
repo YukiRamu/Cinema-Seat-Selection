@@ -156,6 +156,7 @@ body .container .movieInfo .seatLabel .bookedLabel {
 
 body .container .movieInfo .seatLabel .selectedLabel {
   color: #5392d4;
+  text-shadow: 0 0.1rem 0.5rem #5392d4;
 }
 
 body .container .screenLine {
@@ -237,6 +238,7 @@ body .container .seat-container .seatRow .seat .flaticon-armchair {
 
 body .container .seat-container .seatRow .seat .flaticon-armchair.selected {
   color: #5392d4;
+  text-shadow: 0 0.1rem 0.5rem #5392d4;
 }
 
 body .container .seat-container .seatRow .seat .flaticon-armchair.booked {
@@ -250,6 +252,7 @@ body .container .seat-container .seatRow .seat .flaticon-couch {
 
 body .container .seat-container .seatRow .seat .flaticon-couch.selected {
   color: #5392d4;
+  text-shadow: 0 0.1rem 0.5rem #5392d4;
 }
 
 body .container .seat-container .seatRow .seat .flaticon-couch.booked {

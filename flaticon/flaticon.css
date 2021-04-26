@@ -1,10 +1,10 @@
 @font-face {
     font-family: "flaticon";
-    src: url("./flaticon.ttf?91bb597f1353dc90bf31abe84d112c12") format("truetype"),
-url("./flaticon.woff?91bb597f1353dc90bf31abe84d112c12") format("woff"),
-url("./flaticon.woff2?91bb597f1353dc90bf31abe84d112c12") format("woff2"),
-url("./flaticon.eot?91bb597f1353dc90bf31abe84d112c12#iefix") format("embedded-opentype"),
-url("./flaticon.svg?91bb597f1353dc90bf31abe84d112c12#flaticon") format("svg");
+    src: url("./flaticon.ttf?9a0b4369e6841eee4975775d6fcf440a") format("truetype"),
+url("./flaticon.woff?9a0b4369e6841eee4975775d6fcf440a") format("woff"),
+url("./flaticon.woff2?9a0b4369e6841eee4975775d6fcf440a") format("woff2"),
+url("./flaticon.eot?9a0b4369e6841eee4975775d6fcf440a#iefix") format("embedded-opentype"),
+url("./flaticon.svg?9a0b4369e6841eee4975775d6fcf440a#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -23,4 +23,7 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 }
 .flaticon-couch:before {
     content: "\f102";
+}
+.flaticon-couch-1:before {
+    content: "\f103";
 }
