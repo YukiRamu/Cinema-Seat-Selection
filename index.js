@@ -166,6 +166,7 @@ let listOfIndexWithSelected = [];
 let listOfIndexWithoutSelected = [];
 
 const displaySeatMap = (title) => {
+  alertMsg.classList.remove("show"); //remove alert if it is shown
   // #1: get all from localStorage
   let seatMap = JSON.parse(localStorage.getItem("seatMap"));
 
