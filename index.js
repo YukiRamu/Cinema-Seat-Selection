@@ -75,8 +75,6 @@ class UI {
       UI.regularSeatCount++;
       console.log(UI.regularSeatCount);
       regularTicketNum.innerHTML = UI.regularSeatCount; //display reg ticket num
-      // regularTicketNum.style.opacity = 1; // fadeIn animation 
-      // regularTicketNum.style.transform = "translateX(1rem)"; // fadeIn animation 
       UI.calcTotalPrice(UI.regularSeatCount, this._seatType);
     } else if (this._seatType === "vip") {
       UI.vipSeatCount++;
@@ -200,7 +198,6 @@ const displaySeatMap = (title) => {
 
   //Show map
   UI.showMap();
-
 };
 
 /* When the seat is selected */
@@ -312,3 +309,6 @@ const checkOut = (title) => {
 if ((localStorage.length === 0)) {
   localStorage.setItem("seatMap", JSON.stringify(Object.entries([])));
 }
+
+//Movie title fadeIn animation
+titleHeader.style.opacity = 1;
